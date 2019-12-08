@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conflicts</title>
+    <style>
+        nav > a[href] { /** 0 0 1[href] 2a */
+            color: green;
+        }
+        div a { /** 0 0 0 2  */
+            color: red;
+        }
+        a.link {
+            color: blue !important;
+        }
+        nav > a[href] { /** 0 0 1[href] 2a */
+            color: green !important;
+        }
+    </style>
+</head>
+<body>
+Specificity
+
+<!--Conflicting CSS Declarations-->
+
+<!--0 0 0 0-->
+<!--L -> R-->
+<!--0 0 1 1-->
+<!--0 0 0 2-->
+<!--inline styles, id selectors, class/attribute selectors, element selectors-->
+
+<!--universal selectors and combinators are not a part of this calc.-->
+
+<div>
+    <section>
+        <header>
+            <nav>
+                <a style="color: gray/** 1 0 0 0*/ !important;" class="link" href="https://google.com">Google</a>
+            </nav>
+        </header>
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Selectors</title>
+    <style>
+        * {
+            font-family: 'Avenir Next';
+        }
+        /** Selectors **/
+        /** Element */
+        div {
+            font: 300 16px -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        }
+        /** Class */
+        .models {
+            background-color: red;
+        }
+        /* Attribute */
+        [href="https://google.com"]{
+            color: gray;
+        }
+        /* ID */
+        #current {
+            background-color: black;
+            color: white;
+        }
+        /** Combinators **/
+        /** Child */
+        li > div {
+            background-color: green;
+        }
+        /** Descendant */
+        div a {
+            background-color: blue;
+        }
+        /** Adjacent Sibling */
+        li:hover + li {
+            font-size: 2em; /*Make font size double the current font size*/
+            transition: font-size 250ms ease-in;
+        }
+        li:hover ~ li {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<a href="https://google.com">Google</a>
+<a href="https://yahoo.com">Yahoo</a>
+<div class="models">
+    <div>A4</div>
+    <div>A5</div>
+    <div>A6</div>
+    <div>S4</div>
+    <div>S5</div>
+    <div id="current">SQ5</div>
+</div>
+<div>
+    <ul>
+        <li>
+            <div>1</div>
+        </li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>
+            <a href="https://google.com">Google</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

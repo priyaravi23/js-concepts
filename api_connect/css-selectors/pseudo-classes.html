@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conflicts</title>
+    <style>
+        li > :first-child { /* nth-child, last-child */
+            color: red;
+        }
+        li > div:first-of-type { /* nth-of-type(1) */
+            color: green;
+        }
+        div:nth-of-type(2) {
+            color: pink;
+        }
+        /**
+        LVFHA 0 0 1 0
+         :link
+         :visited
+         :focus
+         :hover
+         :active
+        */
+        li.models > div {
+            font-size: 2em;
+            color: red;
+        }
+        li.models > div::before {
+            content: 'Audi ';
+            display: inline-block;
+            padding-right: 0.3em;
+        }
+        /** ::first-line ::first-letter*/
+    </style>
+    <script>
+        const models = [{name: 'RS3'}, {name: 'RS5'}, {name: 'RSQ5'}, {name: 'SQ5'}];
+    </script>
+</head>
+<body>
+<div>
+    <input type="text">
+    <section>
+        <header>
+            <nav>
+                <a target="_blank" class="link" href="https://google.com">Google</a>
+            </nav>
+        </header>
+    </section>
+    <ul>
+        <li class="models">
+            <div>RS3</div>
+            <div>RS5</div>
+            <div>RSQ5</div>
+            <div>SQ5</div>
+        </li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
+</div>
+</body>
+</html>

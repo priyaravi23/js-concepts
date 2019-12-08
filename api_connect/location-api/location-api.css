@@ -1,0 +1,11 @@
+.repo {
+    border: 1px solid black;
+    background-color: #FFC0CB;
+    display: flex;
+    justify-content: space-between;
+}
+
+.name {
+    padding: 1em;
+    background-color: #FFDAB9;
+}

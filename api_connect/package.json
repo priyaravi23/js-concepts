@@ -1,0 +1,10 @@
+{
+  "name": "rest_api",
+  "version": "1.0.0",
+  "main": "api-request/api.js",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "particlesjs": "^2.2.3"
+  }
+}
