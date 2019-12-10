@@ -1,2 +1,3 @@
-api_connect/node_modules/
-api_connect/.*
+general/node_modules/
+general/.*
+.idea/
