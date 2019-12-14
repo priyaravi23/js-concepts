@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <title>Conflicts</title>
     <style>
+        /* : is pseudo class */
+
+        /* selector:pseudo-class {*/
+            /*property: value;*/
+        /*}*/
+
         li > :first-child { /* nth-child, last-child */
             color: red;
         }
@@ -25,6 +31,13 @@
             font-size: 2em;
             color: red;
         }
+
+        /* :: is pseudo element and by default they are all inline  */
+
+        /*selector::pseudo-element {*/
+            /*property: value;*/
+        /*}*/
+
         li.models > div::before {
             content: 'Audi ';
             display: inline-block;

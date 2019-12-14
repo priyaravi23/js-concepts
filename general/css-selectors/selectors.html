@@ -38,10 +38,13 @@
             background-color: blue;
         }
         /** Adjacent Sibling */
+        /* + selects just the first sibling that follows the selector */
         li:hover + li {
             font-size: 2em; /*Make font size double the current font size*/
             transition: font-size 250ms ease-in;
         }
+
+        /* ~ selects all the siblings that follows the selector */
         li:hover ~ li {
             background-color: green;
         }

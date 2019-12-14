@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 2em;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    Ancestor
+    <div data-parent="true">
+        Parent
+        <div data-innermost="true">
+            Child
+        </div>
+    </div>
+</div>
+<script>
+
+    // Understand the order of event firings for capturing and bubbling
+    // - write code to test that
+    // Stop default behavior - identify events that can be targeted using preventDefault
+    // break the propagation at any point
+
+    const handleDivClick = e => {
+        // console.log(e.currentTarget, e);
+        console.log('firing from ', e.currentTarget);
+        // console.log(e.currentTarget.dataset);
+        if (e.currentTarget.dataset.innermost) {
+            // e.preventDefault(); // Prevent the default behavior for the event.
+            // TODO: When the child is clicked on, show ancestor > parent > child > child STOP
+
+            // console.log(e.eventPhase);
+            // if (e.eventPhase === 2) { // The event has arrived at the event's target. start of bubbling phase
+            //     e.stopPropagation();
+            // }
+
+        }
+
+        // TODO: When the child is clicked on, show ancestor > parent > STOP
+
+        if (e.currentTarget.dataset.parent && e.eventPhase === 1) {
+            e.stopPropagation();
+        }
+    };
+    document.querySelectorAll('div').forEach(div =>{
+        // event capturing vs event bubbling
+        div.addEventListener('click', handleDivClick, false);
+        div.addEventListener('click', handleDivClick, true);
+    });
+</script>
+</body>
+</html>
