@@ -76,9 +76,16 @@ console.log(`Legal name as per passport is: ${name.first} ${name.last}`);
 // So, when used in a function, in strict mode, this is undefined.
 
 "use strict";
-function myFunction() {
+const myFunction = function() {
     console.log(this);
-}
+};
+
+// arrow function does not have the concept of this or binding. in strict mode, this points to the global object
+"use strict";
+const myFunction = () => {
+    console.log(this);
+};
+
 
 // In an event, this refers to the element that received the event.
 
