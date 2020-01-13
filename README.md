@@ -20,12 +20,6 @@
         }
 ```
 
-### Dom Querying 
-- Use Dom Scripting to Extract data from websites 
-    - https://www.mbusa.com/en/cpo
-    - https://www.kbb.com/hatchback/
-    - https://www.kbb.com/suv/
-
 ### Events
 - Event Bubbling
 - Event Capturing 

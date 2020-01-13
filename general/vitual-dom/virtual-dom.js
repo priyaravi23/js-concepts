@@ -1,23 +1,3 @@
-// Have to wait for the page to load
-
-/**
- * Naive implementation of the MVC pattern ... somewhat ...
- *
- * Model -> View automatically
- *
- * DOM rendering is insanely expensive ...
- * Figures out which element needs a change and then only updates that.
- * props / state changes the React render() function gets called
- *
- * https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e
- * */
-
-// https://developer.mozilla.org/en-US/docs/Web/API/Event
-// Read up on the reference above with particular emphasis on event.target
-// Sparse Arrays: https://learning.oreilly.com/library/view/javascript-the-definitive/9781449393854/ch07s03.html
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
-// http://html5doctor.com/html5-custom-data-attributes/
-
 const fruitsModel = [
     {
         id: '68691f42-ef53-41e9-accb-31d370af3784',
