@@ -39,3 +39,30 @@
 - Context when using new keyword 
 - Arrow functions 
 - Use Strict 
+
+### CSS Flexbox 
+
+```html
+<body>
+  <div class="content">
+    content
+  </div>
+  <footer class="footer"></footer>
+</body>
+```
+
+```css
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
+```
