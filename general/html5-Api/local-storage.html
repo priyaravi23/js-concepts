@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LocalStorage</title>
+</head>
+<body>
+<input type="text">
+<button>Save</button>
+<button>Get</button>
+<button>Delete</button>
+<button>Print</button>
+<button>Clear</button>
+
+<p id="list"></p>
+
+<script>
+    const [addItem, getItem, deleteItem, print, clear] = document.querySelectorAll('button');
+
+    addItem.addEventListener('click', () => {
+        const data = document.querySelector('input').value;
+        localStorage.setItem('inputText', JSON.stringify({
+            inputText: data
+        }));
+    });
+
+    getItem.addEventListener('click', () => {
+        const data = localStorage.getItem('inputText');
+        console.log(data);
+        console.log(JSON.parse(data));
+    });
+
+    // todo: Delete an item
+    deleteItem.addEventListener('click', () => {
+        // Storing key present at 0th index
+        let key = localStorage.key(0);
+
+        // Removing key at 0th index
+        localStorage.removeItem(key);
+
+        // Printing key at 0th index
+        let key2 = localStorage.key(0);
+    });
+
+    // todo: List all keys and values in localStorage
+    print.addEventListener('click', () => {
+        console.log(localStorage.length);
+
+        for (let i = 0; i < localStorage.length; i++) {
+            let keys = localStorage.key(i);
+            document.getElementById("list").innerHTML = localStorage.getItem(keys);
+        }
+    });
+
+    // todo: Delete all keys in localStorage
+    clear.addEventListener('click', () => {
+       localStorage.clear();
+       console.log('local storage is empty')
+    })
+
+    // add an item to the cart - input text
+</script>
+</body>
+</html>

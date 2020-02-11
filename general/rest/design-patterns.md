@@ -1,0 +1,12 @@
+ - MVC (model -> view controller -> model. Anti-pattern: Controller updates the model e.g. api callback has the render code)
+ - Module Pattern (ES6 modules) 
+    - Not the common JS (using modules.exports({}) but using require JS (using imports and exports)
+  - Encapsulating all the data
+    - No extraneous variables in the global context
+    - Limited access to methods and properties that are exported
+    - Singleton: A module is a singleton
+  - Factory Pattern
+   - Configuration
+   - Batch creation
+  - Observer
+  - Publisher / Subscribe

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Geolocation</title>
+</head>
+<body>
+<script>
+
+    // function getCurrentPosition() {
+    //     return new Promise((resolve, reject) => {
+    //         navigator.geolocation.getCurrentPosition(resolve, reject);
+    //     });
+    // }
+    //
+    // (async function () {
+    //     const position = await getCurrentPosition();
+    // }());
+
+
+    console.log(navigator.geolocation ? 'Geolocation is supported' : 'Geolocation is not supported');
+    if (navigator.geolocation) {
+        const {geolocation} = navigator;
+        const onSuccess = (position) => {
+            const {coords, timestamp} = position;
+            const {latitude, longitude} = coords;
+            const a = document.createElement('a');
+            a.href = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+            a.setAttribute('target', '_blank');
+            a.click();
+
+            console.log('Got the current position!', args);
+        };
+        const onError = (...args) => {
+            console.log('Failed to get the data!', args);
+        };
+        geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+</script>
+</body>
+</html>

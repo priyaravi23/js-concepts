@@ -1,0 +1,21 @@
+## Geolocation
+
+- https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
+- Storage 
+    - Session
+        - session storage will be removed once tabs are closed
+    - Local Storage
+        - local storage will be persisted even after tabs are closed
+        - doesnt get sent to the server multiple times
+        - ~4 MB of data can be stored
+        - want to store in the local system but not send to server
+    - Cookies
+        - 2 major limitations 
+            - always sent back to the server 
+            - should be less than 4 kb and be sent in headers 
+        - set and get to get info (check document.cookie)
+        - relevant to domains they are mapped in
+- Workers
+    - Shared 
+    - Dedicated
+- File Readers
