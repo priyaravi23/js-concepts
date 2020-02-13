@@ -19,8 +19,11 @@ DB (user) / (json / xml / text)
   - Headers
    - Mention the representation of the data required "accept: application/json"
    - Caching (Expires)
-  - HTTP Verbs
-  - HTTP Status Codes (https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
+  - HTTP Verbs and status codes
+    - Successful responses (200–299),
+    - Redirects (300–399),
+    - Client errors (400–499),
+    - and Server errors (500–599).
 
 
  CORS:

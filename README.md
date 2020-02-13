@@ -1,6 +1,5 @@
 # js-concepts
 
-## Basics 
 ### REST API 
 - Make an API call and render the data 
 
@@ -66,3 +65,15 @@ body {
   flex-shrink: 0;
 }
 ```
+
+### React
+- React Component Lifecycle
+
+![](general/react/lifecycle.png)
+
+- Passing Data Between React Components — Parent, Children, Siblings
+- Understanding React Higher-Order Components
+- Understanding React Hooks
+- Getting Started with React-Redux
+
+![](general/react/redux-arch.png)
