@@ -90,6 +90,9 @@
 - Pass Unrelated `props` Through to the Wrapped Component
 - Refs Aren’t Passed Through but forward the ref to the wrapped component using the `forwardRef` function of React
 
+
+### Example 1
+
 ```js
 const inputString = (props) => {
     return (
@@ -128,6 +131,71 @@ export default function App() {
 }
 ```
 
+### Example 2
+
+- Show a loader while a component waits for data
+```js
+// List.js
+import React from 'react';
+const List = (props) => {
+  const { repos } = props;
+  if (!repos) return null;
+  if (!repos.length) return <p>No repos, sorry</p>;
+  return (
+    <ul>
+      {repos.map((repo) => {
+        return <li key={repo.id}>{repo.full_name}</li>;
+      })}
+    </ul>
+  );
+};
+export default List;
+```
+
+```js
+// withdLoading.js
+import React from 'react';
+function WithLoading(Component) {
+  return function WithLoadingComponent({ isLoading, ...props }) {
+    if (!isLoading) return <Component {...props} />;
+    return <p>Hold on, fetching data might take some time.</p>;
+  };
+}
+export default WithLoading;
+```
+
+
+```js
+import React from 'react';
+import List from './components/List.js';
+import WithLoading from './components/withLoading.js';
+const ListWithLoading = WithLoading(List);
+
+class App extends React.Component {
+  state = {
+    loading: false,
+    repos: null,
+  };
+  componentDidMount() {
+    this.setState({ loading: true });
+    fetch(`https://api.github.com/users/hacktivist123/repos`)
+      .then((res) => res.json())
+      .then((repos) => {
+        this.setState({ loading: false, repos: repos });
+      });
+    }
+   render() {
+    return (
+      <ListWithLoading
+        isLoading={this.state.loading}
+        repos={this.state.repos}
+      />
+    );
+  }
+}
+export default App;
+```
+
 ## Hooks 
 
 - Hooks are functions that let you “hook into” React state and lifecycle features from function components 
@@ -155,10 +223,13 @@ export default function App() {
     ```text
     Redux-Saga is a library that aims to make application side effects (e.g., asynchronous actions such as fetching data) easier to handle and more efficient to execute. However, unlike Redux-Thunk, which utilizes callback functions, a Redux-Saga thread can be started, paused and cancelled from the main application with normal Redux actions.
     ```
-- Redux-Thunk returns promises, which are more difficult to test. Testing thunks often requires complex mocking of the 
-  fetch api, axios requests, or other functions
+- Redux-Thunk returns promises, which are more difficult to test. Testing thunks often requires complex mocking of the fetch api, axios requests, or other functions
   
-- With Saga, avoid callback hell and test functions more easily
+- With Saga, avoid callback hell meaning that you can avoid passing in functions and calling them inside
+
+- The call and put methods return JavaScript objects. Thus, you can simply test each value yielded by your saga function with an equality comparison.
+
+- With Saga, no need to mock functions wrapped with effects. This makes tests clean, readable and easier to write
 
 ## Software Engineering Concepts 
 
